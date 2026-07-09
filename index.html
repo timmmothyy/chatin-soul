@@ -10,8 +10,8 @@
     <style>
         /* 參照量產卡牌工藝的深墨綠與米色調 */
         :root {
-            --bg-color: #F4F1EA;      /* 米色底 (C5 M10 Y15 K0) */
-            --primary-color: #16382B; /* 深墨綠 (C85 M40 Y80 K45) */
+            --bg-color: #F4F1EA;      /* 米色底 */
+            --primary-color: #16382B; /* 深墨綠 */
             --accent-color: #D4AF37;  /* 霧面金 */
             --text-dark: #2C3E50;
         }
@@ -123,7 +123,6 @@
 <body>
 
     <div class="container">
-        <!-- 點擊卡牌本身或按鈕皆可直接隨機抽下一張 -->
         <div class="card" id="cardDisplay" onclick="drawCard()">
             <div class="stage-badge" id="stageBadge">Chat-In: Soul</div>
             <div class="english-text" id="engText">Click below to start the journey of soul connection.</div>
@@ -135,12 +134,12 @@
     </div>
 
     <script>
-        // 92 條完整卡牌題目數據庫
+        // 122 條完整卡牌題目數據庫 (已整合 30 條新題)
         const questions = [
             // 第一階段：破冰與日常 Phase 1
             { id: "P1-01", stage: "Phase 1: Icebreakers", eng: "If you and Jesus co-hosted a podcast, who would you want as the first guest and why?", chi: "如果你同耶穌一齊主持一個 Podcast 節目，你第一集會想請邊個做嘉賓？點解？" },
             { id: "P1-02", stage: "Phase 1: Icebreakers", eng: "If God sent you a text message right this second, what would you most want it to say?", chi: "如果上帝依家傳一個手機短訊（SMS）畀你，你最希望裡面寫咩？" },
-            { id: "P1-03", stage: "Phase 1: Icebreakers", eng: "Of all God’s creations (animals, weather, food, etc.), which one makes you admire His sense of humor or creativity the most?", chi: "上帝創造嘅萬物之中，邊一樣嘢（例如某種動物、天氣、食物）最能令你讚嘆祂的幽默感或心意？" },
+            { id: "P1-03", stage: "Phase 1: Icebreakers", eng: "Of all God's creations (animals, weather, food, etc.), which one makes you admire His sense of humor or creativity the most?", chi: "上帝創造嘅萬物之中，邊一樣嘢（例如某種動物、天氣、食物）最能令你讚嘆祂的幽默感或心意？" },
             { id: "P1-04", stage: "Phase 1: Icebreakers", eng: "Aside from worship music, is there a mainstream secular song that you find deeply spiritually inspiring?", chi: "你平時除咗聽詩歌，有邊首「世俗流行曲」你覺得其實好有屬靈嘅啟發？" },
             { id: "P1-05", stage: "Phase 1: Icebreakers", eng: "What is the funniest or most embarrassing thing that has ever happened to you at church?", chi: "喺你過往嘅返教會生涯入面，發生過最搞笑或者最尷尬嘅一件事係咩？" },
             { id: "P1-06", stage: "Phase 1: Icebreakers", eng: "If you had to describe your current relationship with God using a food or drink, what would it be? (e.g., undissolved sugar, espresso, boiling water?)", chi: "如果要用一種嘢食或者嘢飲嚟形容你依家同上帝嘅關係，會係咩？（例如：未溶嘅糖、Espresso、滾水？）" },
@@ -175,7 +174,7 @@
             { id: "P2-09", stage: "Phase 2: Reflection", eng: "If you could ask God a single \"Why?\" regarding something you've been through in life, what would you ask?", chi: "如果你可以問上帝一個關於你人生遭遇嘅「點解」，你會問咩？" },
             { id: "P2-10", stage: "Phase 2: Reflection", eng: "What specific characteristic of being \"salt and light\" do you feel modern society needs most from Christians today?", chi: "你覺得依家嘅香港/現代社會，最缺乏基督徒發揮邊一種「光和鹽」嘅特質？" },
             { id: "P2-11", stage: "Phase 2: Reflection", eng: "What spiritual quality do you think regular churchgoers are most at risk of losing without realizing it?", chi: "你覺得一個長期返教會嘅人，最容易在不知不覺中失去咗咩屬靈特質？" },
-            { id: "P2-12", stage: "Phase 2: Reflection", eng: "Since becoming a believer, what is the most noticeable personality trait that God has pruned or transformed in you?", chi: "你港主之後，最明顯被神「修剪」或者改變咗嘅一個性格特質係咩？" },
+            { id: "P2-12", stage: "Phase 2: Reflection", eng: "Since becoming a believer, what is the most noticeable personality trait that God has pruned or transformed in you?", chi: "你信主之後，最明顯被神「修剪」或者改變咗嘅一個性格特質係咩？" },
             { id: "P2-13", stage: "Phase 2: Reflection", eng: "To you, is \"obedience\" usually a choice filled with blessing, or a struggle filled with pain?", chi: "「順服」對你嚟講，通常係一個充滿祝福嘅決定，定係一個充滿痛苦嘅掙扎？" },
             { id: "P2-14", stage: "Phase 2: Reflection", eng: "Is there a \"spiritual concept\" you used to hold firmly to, but after going through life’s trials, you now view in a completely different light?", chi: "有沒有哪一個你以前深信不疑嘅「屬靈觀念」，在經歷人生洗禮後，有了完全不一樣的體會？" },
             { id: "P2-15", stage: "Phase 2: Reflection", eng: "When you discovered that a spiritual mentor or pastor you highly respected had weaknesses and imperfections, how did you process your faith?", chi: "當你發現一個你很敬重的屬靈導師或牧者也有軟弱和不完美時，你當時如何整理自己的信仰？" },
@@ -188,6 +187,29 @@
             { id: "P2-22", stage: "Phase 2: Reflection", eng: "Looking back at the proudest moment of your life, do you view it as God's handiwork or your own hard work?", chi: "回顧你人生中最驕傲的一刻，你覺得那是神的工作，還是你自己的努力？" },
             { id: "P2-23", stage: "Phase 2: Reflection", eng: "When non-believing friends ask why you follow Christ, which personal life story do you usually share with them?", chi: "當非基督徒朋友問起你「點解要信主」時，你通常會用哪一個生命故事去回應他們？" },
             { id: "P2-24", stage: "Phase 2: Reflection", eng: "If faith were a building, do you feel your current spiritual foundation is built on solid rock, or are some areas starting to shake?", chi: "如果信仰是一座建築物，你覺得你現時的信仰根基是建在磐石上，還是有些地方正開始動搖？" },
+            // 新增 Phase 2 題目 (25-46)
+            { id: "P2-25", stage: "Phase 2: Reflection", eng: "Looking back from the moment you believed until now, what is the greatest, most incredible \"miracle\" God has done in your life?", chi: "回顧你信主到依家，你覺得上帝賜予你生命最大、最不可思議的一個「神蹟」係咩？" },
+            { id: "P2-26", stage: "Phase 2: Reflection", eng: "Was there ever a moment when you didn't even pray out loud, yet God quietly granted the unspoken desire of your heart?", chi: "有哪一個時刻，你雖然沒有開口禱告，但上帝卻悄悄應允了你心底裡的小心願？" },
+            { id: "P2-27", stage: "Phase 2: Reflection", eng: "What is the most beautiful spiritual gift or talent that God has shaped in you, which makes you feel truly confident?", chi: "上帝在你身上塑造得最美、最讓你感到自信的一個屬靈恩賜或才華是什麼？" },
+            { id: "P2-28", stage: "Phase 2: Reflection", eng: "Within the past month, which experience made you exclaim from the bottom of your heart, \"Wow, my God is truly amazing!\"?", chi: "過去這一個月內，哪一個經歷讓你打從心底裡讚嘆：「哇，我的神真的太厲害、太奇妙了！」？" },
+            { id: "P2-29", stage: "Phase 2: Reflection", eng: "Is there a testimony of a fellow believer that served like a guiding light, giving you immense faith and strength when you were lost?", chi: "有沒有哪一位弟兄姊妹的生命見證，曾像一盞燈一樣，在你迷茫時給了你極大的信心和力量？" },
+            { id: "P2-30", stage: "Phase 2: Reflection", eng: "When was the last time you experienced \"peace that surpasses all understanding\" while facing a difficult situation?", chi: "你最近一次經歷到「出人意外的平安」，是在面對什麼事情的時候？" },
+            { id: "P2-31", stage: "Phase 2: Reflection", eng: "If God were to present you with a heavenly award for your \"love and dedication\" over the past year, what would that award be called?", chi: "如果上帝依家要為你過去一年的「愛心與付出」頒發一個天家獎項，你覺得那個獎項會叫什麼名字？" },
+            { id: "P2-32", stage: "Phase 2: Reflection", eng: "Of all the attributes of Jesus you know (e.g., love, justice, faithfulness, humor), which one makes you feel most secure and loved?", chi: "在你認識的主耶穌所有屬性中（如：慈愛、公義、信實、幽默），哪一個最讓你感到安全和被愛？" },
+            { id: "P2-33", stage: "Phase 2: Reflection", eng: "Which worship song or lyric has been popping up in your mind lately, serving as your source of strength throughout the day?", chi: "哪一首詩歌或歌詞，最近常常在你腦海中浮現，成為你一整天的力量來源？" },
+            { id: "P2-34", stage: "Phase 2: Reflection", eng: "Thinking back to a crisis you thought was \"absolutely impossible to solve,\" in what unexpected way did God eventually carry you through?", chi: "回想一個你曾經覺得「絕不可能解決」的難關，上帝最後用什麼超乎你想像的方式帶你跨越了？" },
+            { id: "P2-35", stage: "Phase 2: Reflection", eng: "In your most routine daily life, what is one small thing that makes you deeply feel, \"Wow, this is also God's grace\"?", chi: "在你最日常、最平凡的衣食住行裡面，有哪一件小事能讓你深深感受到「這也是神的恩典」？" },
+            { id: "P2-36", stage: "Phase 2: Reflection", eng: "What kind of \"new seed\" (e.g., more gentleness, courage, or generosity) do you feel God has quietly planted in your character lately?", chi: "你覺得上帝最近在你的性格裡，悄悄撒下了一顆怎樣的「新種子」（例如：更多的溫柔、勇敢或慷慨）？" },
+            { id: "P2-37", stage: "Phase 2: Reflection", eng: "God has ever spoken a perfectly timed word of comfort to you through a stranger or a seemingly random coincidence?", chi: "上帝有沒有透過一個陌生人、或者一個看似隨意的巧合，對你說過一句最合時宜的安慰？" },
+            { id: "P2-38", stage: "Phase 2: Reflection", eng: "Which Bible verse did you read recently that suddenly lit up your heart, making you feel, \"This is exactly what God is saying to me today\"?", chi: "哪一節經文是你最近讀到時，心裡突然亮起來，覺得「這正是上帝今天對我說的話」？" },
+            { id: "P2-39", stage: "Phase 2: Reflection", eng: "Imagine yourself as a vessel of God's grace—do you feel your grace right now is \"just enough,\" or is it already \"overflowing\" to bless those around you?", chi: "想像你是一個盛載神恩典的器皿，你覺得你現時的恩典是「剛好夠用」，還是已經「滿溢流出」去祝福身邊人了？" },
+            { id: "P2-40", stage: "Phase 2: Reflection", eng: "In which close relationship in your life have you been able to most tangibly see and experience \"God's unconditional love\"?", chi: "在你人生的哪一段親密關係中，你最能具體地看見和體驗到「上帝那無條件的愛」？" },
+            { id: "P2-41", stage: "Phase 2: Reflection", eng: "If you had to choose a verb to describe your current life stage (e.g., running, soaring, resting, dancing), which one would you pick and why?", chi: "如果要為你目前的生命狀態選一個動詞（如：奔跑、飛翔、安歇、跳舞），你會選哪一個？點解？" },
+            { id: "P2-42", stage: "Phase 2: Reflection", eng: "During this past week, at what moment did you catch yourself smiling and quietly whispered a \"Thank You\" to God?", chi: "過去這一個星期，有哪一個時刻你笑了出來，並且心裡默默對神說了一句「謝謝祢」？" },
+            { id: "P2-43", stage: "Phase 2: Reflection", eng: "Which spiritual habit (e.g., morning devotions, spontaneous breath prayers) have you successfully built recently that has brought you great blessing?", chi: "哪一個屬靈習慣（如：早起靈修、隨時隨地默禱），是你在過去一段日子裡建立成功，並帶給你很大祝福的？" },
+            { id: "P2-44", stage: "Phase 2: Reflection", eng: "How do you think the \"strengths\" God placed in your life are currently bringing a positive transformation to your family, workplace, or cell group?", chi: "你覺得上帝放在你生命中的「長處」，目前正如何默默地為身邊的家庭、職場或小組帶來正向的轉化？" },
+            { id: "P2-45", stage: "Phase 2: Reflection", eng: "If you could loudly proclaim one piece of \"good news/testimony\" about God to the world today, what part would you most want to share?", chi: "如果今天你可以大聲向世界宣告一個關於神的「好消息/見證」，你最想分享哪一部分？" },
+            { id: "P2-46", stage: "Phase 2: Reflection", eng: "Looking back at all your prayers, what is the most protective and graceful \"No\" from God that you are now deeply grateful for?", chi: "回顧你大大小小的祈禱，你覺得上帝最讓你心服口服、最感恩的一個「No」（拒絕你的禱告）是什麼？" },
 
             // 第三階段：掙扎與真實 Phase 3
             { id: "P3-01", stage: "Phase 3: Authenticity", eng: "What is one truth or reminder you feel you need to hear over and over again right now?", chi: "有咩說話或者真理，你覺得自己依家最需要重複聽、重溫嘅？" },
@@ -196,18 +218,18 @@
             { id: "P3-04", stage: "Phase 3: Authenticity", eng: "When facing doubts or criticisms from non-believing friends, family, or colleagues, when did you feel most helpless or at a loss for words?", chi: "面對非基督徒朋友、屋企人或者同事嘅質疑，你曾經覺得最難回答或者最無力嘅時候係點樣？" },
             { id: "P3-05", stage: "Phase 3: Authenticity", eng: "Which specific doctrine or biblical value do you still find deeply challenging or hard to fully accept to this day?", chi: "無論邊一條教義或者聖經嘅價值觀，你到依家依然覺得「真係好難想像/好難接受」？" },
             { id: "P3-06", stage: "Phase 3: Authenticity", eng: "What is the one responsibility or calling in your faith journey that you fear or intentionally avoid the most?", chi: "喺信仰裡面，你最害怕或者最刻意逃避嘅一件責任/呼召係咩？" },
-            { id: "P3-07", stage: "Phase 3: Authenticity", eng: "When you have prayed for a long time yet God seems completely silent, how do you sustain your trust in Him?", chi: "當你禱告咗好耐，但上帝好似一直保持沉默嘅時候，你點樣維持你對祂嘅信任？" },
+            { id: "P3-07", stage: "Phase 3: Authenticity", eng: "When you have prayed for a long time yet God seems completely silent, how do you sustain your trust in Him?", chi: "當你禱告咗好耐，打上帝好似一直保持沉默嘅時候，你點樣維持你對祂嘅信任？" },
             { id: "P3-08", stage: "Phase 3: Authenticity", eng: "Have you ever felt disappointed or even angry with God, the church, or fellow Christians? What happened?", chi: "你有無試過對上帝、對教會、或者對其他基督徒感到失望甚至憤怒？當時發生咗咩事？" },
             { id: "P3-09", stage: "Phase 3: Authenticity", eng: "When dealing with a recurring weakness or sin in your life, how do you extend grace to yourself while continuing to look to the Lord?", chi: "面對自己生命中不斷重複犯嘅某個軟弱或罪，你點樣去接納自己並繼續仰望主？" },
             { id: "P3-10", stage: "Phase 3: Authenticity", eng: "Which internal wound or fractured relationship do you most desire God to heal and restore right now?", chi: "你依家最希望上帝醫治或者修補你內心嘅邊一個傷口/邊一段關係？" },
             { id: "P3-11", stage: "Phase 3: Authenticity", eng: "Have you ever felt completely lonely at church, even when surrounded by crowds? Where did that loneliness stem from?", chi: "你有沒有試過在教會裡覺得非常孤獨，即使身邊有很多人？那種孤獨感是來自什麼？" },
-            { id: "P3-12", stage: "Phase 3: Authenticity", eng: "Whether it’s money, reputation, time, or relationships—what is the hardest thing for you to surrender to God right now?", chi: "在金錢、名利、時間或感情上，你覺得自己目前最難向神「放手」的是哪一樣？" },
+            { id: "P3-12", stage: "Phase 3: Authenticity", eng: "Whether it's money, reputation, time, or relationships—what is the hardest thing for you to surrender to God right now?", chi: "在金錢、名利、時間或感情上，你覺得自己目前最難向神「放手」的是哪一樣？" },
             { id: "P3-13", stage: "Phase 3: Authenticity", eng: "Honestly, what percentage of your church attendance and ministry comes from \"genuine desire,\" and what percentage comes from \"obligation or keeping up appearances\"?", chi: "坦白說，你每週返教會、參與服侍，有多少百分比是出於「真心渴望」，有多少是出於「責任與面子」？" },
             { id: "P3-14", stage: "Phase 3: Authenticity", eng: "When someone close to you goes through immense trial or suffering and you don't know how to comfort them, what is your greatest inner struggle?", chi: "當你身邊有肢體經歷極大的管教或苦難，而你不知道該如何安慰時，你內心最大的無力感是什麼？" },
             { id: "P3-15", stage: "Phase 3: Authenticity", eng: "Have you ever envied another Christian's spiritual gifts or their seemingly blessed life? How did you deal with that envy?", chi: "你有沒有嫉妒過其他基督徒的「屬靈恩賜」或者生活上的順遂？你如何處理這種嫉妒？" },
-            { id: "P3-16", stage: "Phase 3: Authenticity", eng: "Faced with societal trends that contradict biblical values, have you ever chosen to stay silent or compromise just to fit in?", chi: "面對社會上與信仰價值觀完全背道而馳的潮流（例如跨越道德底線的事），你曾否為了融入圈子而選擇沉默或妥協？" },
+            { id: "P3-16", stage: "Phase 3: Authenticity", eng: "Faced with societal trends that contradict biblical values, have you ever chosen to stay silent or compromise just to fit in?", chi: "面對社會上與信仰價值觀完全背道而馳的潮流，你曾否為了融入圈子而選擇沉默或妥協？" },
             { id: "P3-17", stage: "Phase 3: Authenticity", eng: "What part of your real thoughts or lifestyle habits are you most afraid of your brothers and sisters in Christ finding out? Why?", chi: "你最害怕身邊的弟兄姊妹知道你哪一面的真實想法或生活習慣？為什麼？" },
-            { id: "P3-18", stage: "Phase 3: Authenticity", eng: "Is there an unanswered prayer from your past that still confuses you today, or perhaps leaves a lingering knot in your heart?", chi: "有沒有哪一次的禱告未獲應允，直到今天你依然覺得百思不得其解，甚至心中帶有一點點疙瘩？" },
+            { id: "P3-18", stage: "Phase 3: Authenticity", eng: "Is there an unanswered prayer from your past that still confuses you today, or perhaps leaves a lingering knot in your heart?", chi: "有沒有哪一次的禱告未獲應允，直到今天你依然覺得百思不可其解，甚至心中帶有一點點疙瘩？" },
             { id: "P3-19", stage: "Phase 3: Authenticity", eng: "When you mess up in life, is your first instinct to hide from God (like Adam and Eve) or to immediately come before Him seeking forgiveness?", chi: "當你在生活中犯了錯，你第一個反應通常是躲避神（像亞當夏娃），還是立刻來到神面前求饒恕？" },
             { id: "P3-20", stage: "Phase 3: Authenticity", eng: "Do you feel that your identity as a Christian serves as a constant protection in daily life, or more like a heavy moral burden?", chi: "你覺得「作基督徒」這個身份，在你的日常生活裡，究竟是一個隨時隨地的保護，還是一個沉重的道德包袱？" },
             { id: "P3-21", stage: "Phase 3: Authenticity", eng: "Has there been a moment where the thought crossed your mind: \"If I hadn't become a believer, my life might be much easier and freer\"?", chi: "有沒有哪一個時刻，你內心曾閃過「如果我當初沒有信主，我的人生可能會更輕鬆自由」的想法？" },
@@ -225,19 +247,28 @@
             { id: "P4-07", stage: "Phase 4: Togetherness", eng: "Which non-believing friend or relative has been heavily on your heart lately, whom you most want to pray for and share the gospel with?", chi: "有邊一個未信主嘅親友，係你呢陣子最擺在心上、最想為佢祈禱同分享福音嘅？" },
             { id: "P4-08", stage: "Phase 4: Togetherness", eng: "In the face of future uncertainties (career, family, life direction), what kind of strength do you need God to grant you right now?", chi: "面對未來嘅不確定性（如事業、家庭、人生方向），你依家最需要上帝賜予你咩力量？" },
             { id: "P4-09", stage: "Phase 4: Togetherness", eng: "If you were to pioneer a new ministry, even with limited resources, what are you most passionate about doing?", chi: "如果要開拓一個新嘅服侍方向，就算資源有限，你內心最有團火、最想做嘅係咩？" },
-            { id: "P4-10", stage: "Phase 4: Togetherness", eng: "After our conversation today, how would you most like us to look out for and support you in daily life?", chi: "喺我哋今次嘅交流過過後，你最希望我哋以後點樣喺日常生活中為你守望？" },
+            { id: "P4-10", stage: "Phase 4: Togetherness", eng: "After our conversation today, how would you most like us to look out for and support you in daily life?", chi: "喺我哋今次嘅交流過後，你最希望我哋以後點樣喺日常生活中為你守望？" },
             { id: "P4-11", stage: "Phase 4: Togetherness", eng: "Picturing yourself five years from now, what kind of \"stale Christian\" are you most afraid of becoming?", chi: "想像五年後的自己，你最害怕看見自己變成一個怎樣的「老基督徒」？" },
             { id: "P4-12", stage: "Phase 4: Togetherness", eng: "If our group were to take on a challenge together for God that steps completely out of our comfort zone, what would you want it to be?", chi: "如果我們這個小組要一起為神完成一個跨出舒適圈的挑戰，你最希望那會是什麼？" },
-            { id: "P4-13", stage: "Phase 4: Togetherness", eng: "In the future, when you go through another spiritual low, what approach (e.g., direct confrontation, quiet presence, firm reminders) do you permit us to use to restore you?", chi: "在未來的日子裡，當你再次面對屬靈低潮時，你允許我們用什麼方式（如：直接指出問題、安靜陪伴、嚴厲提醒）來挽回你？" },
+            { id: "P4-13", stage: "Phase 4: Togetherness", eng: "In the future, when you go through another spiritual low, what approach do you permit us to use to restore you?", chi: "在未來的日子裡，當你再次面對屬靈低潮時，你允許我們用什麼方式（如：直接指出問題、安靜陪伴、嚴厲提醒）來挽回你？" },
             { id: "P4-14", stage: "Phase 4: Togetherness", eng: "How do you think the trust we built here today can be carried over into our real lives from Monday to Saturday, outside of church walls?", chi: "你覺得我們今天建立的這份信賴關係，該如何延續到教會以外、星期一至六的真實生活裡？" },
-            { id: "P4-15", stage: "Phase 4: Togetherness", eng: "Is there a bad spiritual habit that you are determined to break with the Lord’s help over the course of the next month?", chi: "有沒有哪一個屬靈壞習慣，是你立志在接下來這一個月內，靠著主一定要戒掉的？" },
+            { id: "P4-15", stage: "Phase 4: Togetherness", eng: "Is there a bad spiritual habit that you are determined to break with the Lord's help over the course of the next month?", chi: "有沒有哪一個屬靈壞習慣，是你立志在接下來這一個月內，靠著主一定要戒掉的？" },
             { id: "P4-16", stage: "Phase 4: Togetherness", eng: "Looking towards your future family or the next generation, what core faith value do you most desire to pass down?", chi: "展望未來的家庭或下一代，你最希望傳承下去的信仰核心價值是什麼？" },
-            { id: "P4-17", stage: "Phase 4: Togetherness", eng: "If God were to call one person among us into full-time ministry (pastor/missionary), who is the first person that comes to your mind? Why?", chi: "如果上帝要在我們當中興起一個人去全職奉獻（做傳道人/宣教士），你直覺覺得會是誰？為什麼？" },
+            { id: "P4-17", stage: "Phase 4: Togetherness", eng: "If God were to call one person among us into full-time ministry (pastor/missionary), who is the first person that comes to your mind? Why?", chi: "如果上帝要在我們當中興起一個人去全職奉獻（做傳道人/宣教士），你職覺覺得會是誰？為什麼？" },
             { id: "P4-18", stage: "Phase 4: Togetherness", eng: "As you follow the Lord in the future, in which area do you most need Him to expand your capacity (e.g., patience, tolerance, generosity, courage)?", chi: "在未來追隨主的日子裡，你最需要神擴張你哪一方面的容量（如：忍耐、包容、慷慨、勇敢）？" },
             { id: "P4-19", stage: "Phase 4: Togetherness", eng: "What area of our current gathering format needs \"renewal\" the most so that we can face God and each other more authentically?", chi: "你覺得我們目前的聚會模式，有哪些地方最需要「更新」，才能讓大家更真實地面對神和彼此？" },
             { id: "P4-20", stage: "Phase 4: Togetherness", eng: "If a single Bible verse were to be engraved on your future tombstone to summarize your life, which one would you want it to be?", chi: "如果要在你未來的墓碑上刻上一節經文來總結你的一生，你希望是哪一節？" },
             { id: "P4-21", stage: "Phase 4: Togetherness", eng: "In your next steps of spiritual growth, who among us do you most need to be your accountability partner?", chi: "在接下來的實踐中，你最需要我們哪一個人成為你的 \"Accountability Partner\"（守望/問責夥伴）？" },
             { id: "P4-22", stage: "Phase 4: Togetherness", eng: "If you could declare your hope for your future life in a single sentence, what would that declaration be?", chi: "用一句話宣告你對未來生命的盼望，那句話會是什麼？" },
+            // 新增 Phase 4 題目 (23-30)
+            { id: "P4-23", stage: "Phase 4: Togetherness", eng: "If the transformation of your life since knowing Christ were made into a movie, what kind of hopeful scene would the ending be?", chi: "如果要把你信主後的生命轉變拍成一部電影，這部電影的結局會是一個怎樣充滿盼望的畫面？" },
+            { id: "P4-24", stage: "Phase 4: Togetherness", eng: "When you see which group of people (e.g., children, the elderly, the underprivileged) receiving the gospel and joy, is your heart most moved?", chi: "當你看到哪一個群體（如：小朋友、長者、基層）得著福音和快樂時，你內心會最被觸動和充滿喜樂？" },
+            { id: "P4-25", stage: "Phase 4: Togetherness", eng: "Which of your non-believing friends has recently shown interest in faith, making you feel incredibly excited and expectant?", chi: "你最近一邊哪一個未信主的朋友，最近對你展現出對信仰的興趣，讓你感到非常興奮和期待？" },
+            { id: "P4-26", stage: "Phase 4: Togetherness", eng: "If you could say one thing to your younger self when you first believed, how would you encourage them about how wonderful the future will be?", chi: "如果你可以對剛信主時的自己說一句話，你想如何鼓勵他，告訴他未來的日子有多精彩？" },
+            { id: "P4-27", stage: "Phase 4: Togetherness", eng: "Was there a past ministry experience that left you physically exhausted, yet gave you an unprecedented sense of fulfillment and passion afterward?", chi: "過去有沒有哪一次服侍，雖然過程好累，但完結後你內心的滿足感和火熱是前所未有的？" },
+            { id: "P4-28", stage: "Phase 4: Togetherness", eng: "Looking at the friends gathered here today, what is the one thing about our community that makes you feel most proud and grateful?", chi: "當你看著今天在座的這班朋友，你最為我們這個群體感到驕傲和感恩的一點是什麼？" },
+            { id: "P4-29", stage: "Phase 4: Togetherness", eng: "Which biblical description of \"heaven / the new heaven and new earth\" captures your imagination and fills you with the most anticipation?", chi: "聖經中關於「天家/新天新地」的描述，哪一個部分最讓你心馳神往、充滿期待？" },
+            { id: "P4-30", stage: "Phase 4: Togetherness", eng: "Looking forward, what kind of joyful expectation do you hold for the new things God is about to unfold in areas you cannot yet see?", chi: "展望接下來的日子，你內心對上帝即將在你看不到的地方展開的新工作，抱持著怎樣的期待？" },
 
             // 隱藏加碼：深度互動題 Hidden Bonus
             { id: "BONUS-01", stage: "Hidden Bonus: Deep Interaction", eng: "What specific Christlike character trait or fruit of the Spirit do you see most clearly in me?", chi: "你喺我身上，最能睇到邊一種屬於耶穌嘅特質或果子？" },
