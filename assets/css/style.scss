@@ -1,0 +1,53 @@
+---
+---
+@import "{{ site.theme }}";
+
+body {
+  background-color: #fcfbfa !important; /* 溫潤淺米色 */
+  color: #2c3e29 !important; /* 深墨綠字體 */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #1b3318 !important; /* 標題深墨綠 */
+  font-weight: 700;
+}
+
+a {
+  color: #3b6635 !important; /* 連結改用草綠 */
+  text-decoration: underline;
+}
+
+blockquote {
+  background-color: #f0f4f0 !important; /* 守則淡淡的綠色底 */
+  border-left: 0.3em solid #3b6635 !important;
+  color: #1b3318 !important;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+/* 幫字稿張 Table 做精緻排版 */
+table {
+  width: 100%;
+  display: table;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+th {
+  background-color: #1b3318 !important; /* Table Header 變深墨綠 */
+  color: #ffffff !important;
+  padding: 10px;
+}
+
+td {
+  border-bottom: 1px solid #e1e8e0 !important;
+  padding: 12px;
+}
+
+.cantonese {
+  color: #556b2f; /* 廣東話用柔和嘅橄欖綠，同英文做層次區分 */
+  font-size: 0.95em;
+  margin-top: 5px;
+  display: block;
+}
