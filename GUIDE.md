@@ -1,3 +1,20 @@
+<style>
+  body {
+    background-color: #fcfbfa !important; /* 淺米色背景，呼應 Stage 1 */
+    color: #2c3e29 !important; /* 深墨綠字體，更有質感 */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  h1, h2, h3 {
+    color: #1b3318 !important; /* 標題用深墨綠 */
+    border-bottom: 1px solid #e1e8e0 !important;
+  }
+  blockquote {
+    background-color: #f0f4f0 !important; /* 守則部分用淡淡的綠色框住 */
+    border-left: 0.25em solid #3b6635 !important;
+    color: #2c3e29 !important;
+  }
+</style>
+
 # 📜 《Chatin - Soul》遊戲說明書
 
 [⬅️ 返回主頁](README.md)
